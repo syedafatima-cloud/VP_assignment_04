@@ -1,0 +1,43 @@
+﻿<Window x:Class="CricketTeamManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cricket Team Manager" Height="400" Width="397">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Text="Cricket Team Manager" 
+                   FontSize="20" FontWeight="Bold" 
+                   HorizontalAlignment="Center" Margin="0,0,0,10" Foreground="#FF792828"/>
+
+        <!-- Player Input Section -->
+        <StackPanel Grid.Row="1" Margin="0,0,0,10">
+            <!-- Label for Player Name -->
+            <Label Content="Enter Player Name:" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,5"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="PlayerNameTextBox" Width="200" Margin="0,0,10,0"/>
+                <Button Content="Add Player" Width="75" Background="#FF43D218" FontSize="14" Click="AddPlayer_Click" BorderBrush="#FF565555" Margin="-8,0,0,0" RenderTransformOrigin="0.5,0.5">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Roster List and Actions -->
+        <StackPanel Grid.Row="2">
+            <ListBox x:Name="PlayersListBox" ItemsSource="{Binding Players}" 
+                     Background="#F0F8FF" FontSize="14" BorderBrush="#808080" Margin="0,0,0,10"/>
+            <Button Content="Remove Player" Background="#FFD43A3A" FontSize="14" Click="RemovePlayer_Click" RenderTransformOrigin="0.516,10.544"/>
+        </StackPanel>
+    </Grid>
+</Window>
